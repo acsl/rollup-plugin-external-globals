@@ -9,7 +9,7 @@ function createPlugin(globals, {include, exclude} = {}) {
     name: "rollup-plugin-external-globals",
     transform
   };
-  
+
   function transform(code, id) {
     if (id[0] !== "\0" && !filter(id)) {
       return;
@@ -26,7 +26,7 @@ function createPlugin(globals, {include, exclude} = {}) {
     });
     return isTouched ? {
       code: code.toString(),
-      map: code.generateMap()
+      map: null//code.generateMap()
     } : undefined;
   }
 }
